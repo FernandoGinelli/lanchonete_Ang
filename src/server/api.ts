@@ -14,5 +14,7 @@ import { Users } from "src/shared/Users"
 export const api = remultExpress({
   entities: [Task,Users],
   controllers: [TasksController],
-  getUser: req => req.session!["user"]
+  getUser: req => req.session!["user"], dataProvider: async () =>
+  new JsonDataProvider(new JsonEntityFileStorage("./db"))
 })
+
