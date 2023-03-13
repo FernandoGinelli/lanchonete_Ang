@@ -17,7 +17,8 @@
       (change)="saveTask(task)"
     />
     <input [(ngModel)]="task.title" />
-    <button (click)="saveTask(task)">Salvar</button>
+    <button  *ngIf="taskRepo.metadata.apiUpdateAllowed"
+    (click)="saveTask(task)">Salvar</button>
     <button
       *ngIf="taskRepo.metadata.apiDeleteAllowed"
       (click)="deleteTask(task)"

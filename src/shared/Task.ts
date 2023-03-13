@@ -5,7 +5,8 @@ import { Allow, Entity, Fields, Validators } from "remult"
 @Entity<Task>("tasks", {
   allowApiCrud: Allow.authenticated,
   allowApiInsert:["admin", "fisSelf"],
-  allowApiDelete:["admin","cozin","fisSelf"]
+  allowApiDelete:["admin","cozin","fisSelf"],
+  allowApiUpdate: ["admin", "fisSelf"]
 })
 
 
