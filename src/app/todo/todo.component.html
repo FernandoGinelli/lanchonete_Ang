@@ -1,0 +1,32 @@
+<!-- src/app/auth/auth.component.ts -->
+
+<h1>Falta no self serviçe</h1>
+<main>
+  <form *ngIf="taskRepo.metadata.apiInsertAllowed" (submit)="addTask()">
+    <input
+      placeholder="Oque tem que ser feito?"
+      [(ngModel)]="newTaskTitle"
+      name="newTaskTitle"
+    />
+    <button>Add</button>
+  </form>
+  <div *ngFor="let task of tasks">
+    <input
+      type="checkbox"
+      [(ngModel)]="task.completed"
+      (change)="saveTask(task)"
+    />
+    <input [(ngModel)]="task.title" />
+    <button (click)="saveTask(task)">Salvar</button>
+    <button
+      *ngIf="taskRepo.metadata.apiDeleteAllowed"
+      (click)="deleteTask(task)"
+    >
+      Deletar
+    </button>
+  </div>
+  <div>
+    <button (click)="setAllCompleted(true)">Marcar tudo como Completo</button>
+    <button (click)="setAllCompleted(false)">Marcar tudo como Incompleto</button>
+  </div>
+</main>
