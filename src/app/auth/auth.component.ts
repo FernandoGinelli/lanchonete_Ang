@@ -13,17 +13,20 @@ export class AuthComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   signInUsername = ""
+  signInSenha = ""
   remult = remult
 
   signIn() {
     this.http
       .post<UserInfo>("/api/signIn", {
-        username: this.signInUsername
+        username: this.signInUsername,
+        password: this.signInSenha
       })
       .subscribe({
         next: user => {
           this.remult.user = user
           this.signInUsername = ""
+          this.signInSenha = ""
         },
         error: error => alert(error.error)
       })
