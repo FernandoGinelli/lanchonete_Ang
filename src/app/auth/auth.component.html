@@ -1,16 +1,16 @@
 
 <ng-container *ngIf="!remult.authenticated()"><h1>Login no sistema</h1>
   <main>
-    <form (submit)="signIn()">
-      <input
-        [(ngModel)]="signInUsername"
-        placeholder="Usuario"
-        name="username"
-      />
-      <input
-        [(ngModel)]="signInUsername"
+    <form (submit)="signIn()"><input
+      [(ngModel)]="signInUsername"
+      placeholder="Usuario"
+      name="username"
+    />
+       <input
+        [(ngModel)]="signInSenha"
         placeholder="Senha"
         name="username"
+        type="password"
       />
       <button>Sign in</button>
     </form>
@@ -18,9 +18,10 @@
 </ng-container>
 <ng-container *ngIf="remult.authenticated()">
   <header>
-    Hello {{ remult.user?.name }}
+    {{ remult.user?.name }}
     <button (click)="signOut()">Sign Out</button>
   </header>
   <app-todo></app-todo>
+  <app-cadastro-usuario></app-cadastro-usuario>
 </ng-container>
 

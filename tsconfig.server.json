@@ -10,6 +10,7 @@
     "outDir": "dist",
     "skipLibCheck": true,
     "rootDir": "src"
+
   },
   "include": ["src/server/index.ts"]
 }

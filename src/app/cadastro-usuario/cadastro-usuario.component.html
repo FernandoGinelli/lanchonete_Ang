@@ -1,0 +1,39 @@
+<div *ngIf="userRepo.metadata.apiInsertAllowed">
+<h1>Tela de login</h1>
+<main>
+  <form *ngIf="userRepo.metadata.apiInsertAllowed" (submit)="addUser()">
+    <input
+      placeholder="Nome:"
+      [(ngModel)]="newUserTitle"
+      name="newUserTitle"
+    />
+    <label>
+      Role:
+      <select [(ngModel)]="newUserTitle2" name="newUserRole">
+        <option value="">Selecione uma opção</option>
+        <option value="admin">Admin</option>
+        <option value="fisSelf">FisSelf</option>
+      </select>
+    </label>
+    <input
+      placeholder="Senha"
+      [(ngModel)]="newUserTitle3"
+      name="newUserTitle3"
+      type="password"
+    />
+    <button>Add</button>
+  </form>
+  <div *ngFor="let user of users">
+      <input [(ngModel)]="user.name" />
+    <button  *ngIf="userRepo.metadata.apiUpdateAllowed"
+    (click)="saveUser(user)"; reloadPage()>Salvar</button>
+    <button
+      *ngIf="userRepo.metadata.apiDeleteAllowed"
+      (click)="deleteUser(user)"
+    >
+      Deletar
+    </button>
+  </div>
+
+</main>
+</div>

@@ -7,10 +7,11 @@ import { FormsModule } from "@angular/forms"
 
 import { AppComponent } from "./app.component";
 import { TodoComponent } from './todo/todo.component';
-import { AuthComponent } from './auth/auth.component'
+import { AuthComponent } from './auth/auth.component';
+import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component'
 
 @NgModule({
-  declarations: [AppComponent, TodoComponent, AuthComponent],
+  declarations: [AppComponent, TodoComponent, AuthComponent, CadastroUsuarioComponent],
   imports: [BrowserModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent]

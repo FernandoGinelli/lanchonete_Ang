@@ -1,20 +1,26 @@
-import { EntityBase, IdEntity, Field, Validators, Entity, Allow, Fields } from 'remult';
+import { Allow, Entity, Fields, getFields, IdEntity, UserInfo } from "remult";
 
+@Entity<User>("users",{
+  allowApiCrud: Allow.everyone,
+  allowApiInsert:["admin"],
+  allowApiDelete:["admin"],
+  allowApiUpdate: ["admin"],
 
-
-@Entity<Users>("users", {
-  allowApiCrud: Allow.authenticated,
-  allowApiInsert:"admin"||"fisSelf",
-  allowApiDelete:"admin"||"cozin"||"fisSelf"
 })
+export class User implements UserInfo {
 
-export class Users extends IdEntity {
-  @Fields.string({validate: Validators.required})
-  name= ""
-
-  @Fields.string()
-  email = ""
+  @Fields.uuid()
+  id!: string;
 
   @Fields.string()
-  password = ""
+  roles!: string[];
+
+  @Fields.string()
+  name!:string;
+
+  @Fields.string()
+  password!:string;
+
 }
+
+

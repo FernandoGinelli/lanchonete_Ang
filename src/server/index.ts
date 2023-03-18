@@ -2,18 +2,19 @@
 
 import express from "express"
 import session from "cookie-session"
-import { auth } from "./auth"
-import { api } from "./api"
 import helmet from "helmet"
 import compression from "compression"
 import path from "path"
+import bodyParser from "body-parser"
+import { api } from "./api"
+import { auth } from "./auth"
 
 
 
 
 
 const app = express()
-
+app.use(bodyParser.json());
 app.use(
   session({
     secret: process.env["SESSION_SECRET"] || "my secret"
