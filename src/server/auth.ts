@@ -2,7 +2,6 @@
 
 import express, { Router } from "express"
 import { remult, UserInfo } from "remult"
-import { Arai } from "src/shared/array"
 import { User } from "src/shared/Users"
 
 export const auth = Router()
