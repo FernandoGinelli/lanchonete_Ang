@@ -10,10 +10,17 @@ import { TodoComponent } from './todo/todo.component';
 import { AuthComponent } from './auth/auth.component';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { ProdutosComponent } from './produtos/produtos.component'
+import { RouterModule, Routes } from "@angular/router";
+
+const routes: Routes = [
+  { path: '', component: AuthComponent },
+  { path: 'products', component: ProdutosComponent },
+  { path: 'cadusuario', component: CadastroUsuarioComponent }
+];
 
 @NgModule({
   declarations: [AppComponent, TodoComponent, AuthComponent, CadastroUsuarioComponent, ProdutosComponent],
-  imports: [BrowserModule, HttpClientModule, FormsModule],
+  imports: [ RouterModule.forRoot(routes), BrowserModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })
